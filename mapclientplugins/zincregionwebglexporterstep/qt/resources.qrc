@@ -1,0 +1,6 @@
+
+<RCC>
+  <qresource prefix="zincregionwebglexporterstep">
+    <file>images/data-sink.png</file>
+  </qresource>
+</RCC>
