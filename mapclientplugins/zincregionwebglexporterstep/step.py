@@ -5,7 +5,7 @@ MAP Client Plugin Step
 import json
 import os
 
-from PySide import QtGui
+from PySide2 import QtGui
 
 from mapclient.mountpoints.workflowstep import WorkflowStepMountPoint
 from mapclientplugins.zincregionwebglexporterstep.configuredialog import ConfigureDialog
