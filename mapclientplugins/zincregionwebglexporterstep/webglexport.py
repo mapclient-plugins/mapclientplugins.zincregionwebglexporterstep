@@ -1,4 +1,3 @@
-
 from opencmiss.zinc.context import Context
 from opencmiss.zinc.field import Field
 from opencmiss.zinc.streamregion import StreaminformationRegion

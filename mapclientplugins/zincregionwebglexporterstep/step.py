@@ -1,11 +1,10 @@
-
 """
 MAP Client Plugin Step
 """
 import json
 import os
 
-from PySide import QtGui
+from PySide2 import QtGui
 
 from mapclient.mountpoints.workflowstep import WorkflowStepMountPoint
 from mapclientplugins.zincregionwebglexporterstep.configuredialog import ConfigureDialog
@@ -20,16 +19,16 @@ class ZincRegionWebGlExporterStep(WorkflowStepMountPoint):
 
     def __init__(self, location):
         super(ZincRegionWebGlExporterStep, self).__init__('Zinc Region WebGl Exporter', location)
-        self._configured = False # A step cannot be executed until it has been configured.
+        self._configured = False  # A step cannot be executed until it has been configured.
         self._category = 'Sink'
         # Add any other initialisation code here:
-        self._icon =  QtGui.QImage(':/zincregionwebglexporterstep/images/data-sink.png')
+        self._icon = QtGui.QImage(':/zincregionwebglexporterstep/images/data-sink.png')
         # Ports:
         self.addPort(('http://physiomeproject.org/workflow/1.0/rdf-schema#port',
                       'http://physiomeproject.org/workflow/1.0/rdf-schema#uses',
                       'http://physiomeproject.org/workflow/1.0/rdf-schema#mesh_description'))
         # Port data:
-        self._portData0 = None # http://physiomeproject.org/workflow/1.0/rdf-schema#mesh_description
+        self._portData0 = None  # http://physiomeproject.org/workflow/1.0/rdf-schema#mesh_description
         # Config:
         self._config = {'identifier': ''}
 
@@ -45,7 +44,7 @@ class ZincRegionWebGlExporterStep(WorkflowStepMountPoint):
         if not os.path.exists(output_directory):
             os.mkdir(output_directory)
 
-        for index, buffer  in enumerate(buffers):
+        for index, buffer in enumerate(buffers):
             file_name = os.path.join(output_directory, 'web_gl_description_%d.json' % index)
             with open(file_name, 'w') as f:
                 f.write(buffer)
@@ -61,7 +60,7 @@ class ZincRegionWebGlExporterStep(WorkflowStepMountPoint):
         :param index: Index of the port to return.
         :param dataIn: The data to set for the port at the given index.
         """
-        self._portData0 = dataIn # http://physiomeproject.org/workflow/1.0/rdf-schema#mesh_description
+        self._portData0 = dataIn  # http://physiomeproject.org/workflow/1.0/rdf-schema#mesh_description
 
     def configure(self):
         """
@@ -115,5 +114,3 @@ class ZincRegionWebGlExporterStep(WorkflowStepMountPoint):
         d.identifierOccursCount = self._identifierOccursCount
         d.setConfig(self._config)
         self._configured = d.validate()
-
-
