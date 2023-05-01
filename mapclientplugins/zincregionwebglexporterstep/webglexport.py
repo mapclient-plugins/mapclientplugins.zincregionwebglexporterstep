@@ -1,6 +1,6 @@
-from opencmiss.zinc.context import Context
-from opencmiss.zinc.field import Field
-from opencmiss.zinc.streamregion import StreaminformationRegion
+from cmlibs.zinc.context import Context
+from cmlibs.zinc.field import Field
+from cmlibs.zinc.streamregion import StreaminformationRegion
 
 
 def _read_region_description(region, region_description):
